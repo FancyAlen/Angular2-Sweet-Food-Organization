@@ -1,0 +1,10 @@
+<h3 highlight class="titlesd">最近使用...</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let food of foods" (click)="gotoDetail(food)" class="col-1-4">
+    <div class="module food">
+      <h4>{{food.name}}</h4>
+    </div>
+  </div>
+</div>
+<food-search></food-search>
+<span class="typcn typcn-arrow-left"></span>

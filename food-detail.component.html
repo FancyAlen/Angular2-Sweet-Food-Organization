@@ -1,0 +1,14 @@
+<div *ngIf="food">
+  <h2>{{food.name}} 好好吃!</h2>
+  <div><label>编号: </label>{{food.id}}</div>
+  <div>
+    <label>名称: </label>
+    <input [(ngModel)]="food.name" placeholder="name" />
+  <div>
+    <label>过期时间: </label>
+    <input [(ngModel)]="food.overdate" placeholder="overdate"/>
+  </div>
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>

@@ -1,0 +1,38 @@
+<header>
+<nav class="navbar">
+<h2>我的仓库</h2>
+</nav>
+</header>
+
+<div>
+  <label>名称:</label> <input #foodName />
+  <button (click)="add(foodName.value); foodName.value=''">
+    添加
+  </button>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<ul class ="foods">
+  <li *ngFor="let food of foods"
+    [class.selected]="food === selectedFood"
+    (click)="onSelect(food)">
+    <span class="badge">{{food.id}}</span>
+    <span>{{food.name}}</span>
+    <button type="button" class="delete" (click)="delete(food);$event.stopPropagation()">X</button>
+  </li>
+</ul>
+</div>
+<div *ngIf="selectedFood">
+  <h2>
+    {{selectedFood.name | uppercase}} 是我的最爱！
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+<div class="col-xs-8">
+      <div class="jumbotron" *ngIf="!selectedFood">
+        <span class="glyphicon glyphicon-hand-left choone"></span>
+        <h2 class="choone">选择一项</h2>
+      </div>
+
+    </div>
+</div>

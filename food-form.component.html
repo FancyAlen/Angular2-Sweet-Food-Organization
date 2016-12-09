@@ -1,0 +1,46 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>表单</h1>
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #foodForm="ngForm">
+      <div class="form-group">
+        <label for="name">名称</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="food.name" name="name" #name="ngModel" #spy>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">必须输入名称</div>
+        <br>TODO:remove this:{{spy.className}}
+      </div>
+      <div class="form-group">
+        <label for="kinds">类型</label>
+        <input type="text" class="form-control" id="kinds"[(ngModel)]="food.kinds" name="kinds">
+      </div>
+      <div class="form-group">
+      <label for="overdate">过期时间</label>
+      <select class="form-control" id="overdate" required [(ngModel)]="food.overdate" name="overdate" #overdate="ngModel">
+      <option *ngFor="let p of overdate" [value]= "p">{{p}}</option>
+      </select>
+      <div [hidden]="overdate.valid || overdate.pristine" class="alert alert-danger">
+          必须标注过期时间！
+        </div>
+      </div>
+      <button type="button" class="btn btn-default" (click)="newFood()">新建</button>
+      <button type="submit" class="btn btn-default" [disabled]="!foodForm.form.valid">提交</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>你的提交为:</h2>
+    <div class="row">
+      <div class="col-xs-3">名称：</div>
+      <div class="col-xs-9  pull-left">{{ food.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">类型：</div>
+      <div class="col-xs-9 pull-left">{{ food.kinds }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">过期时间：</div>
+      <div class="col-xs-9 pull-left">{{ food.overdate }}</div>
+    </div>
+    <br>
+    <button class="btn btn-default" (click)="submitted=false">再次编辑</button>
+  </div>
+</div>

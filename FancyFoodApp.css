@@ -1,0 +1,14 @@
+.fancybg
+{
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+ 	width: 100%%;
+	height: 70vh;
+	background: #222;
+	background: -moz-linear-gradient(-45deg, #5fc3e4 0%, #e55d87 100%);
+	background: -webkit-linear-gradient(-45deg, #5fc3e4 0%, #e55d87 100%);
+	background: linear-gradient(135deg, #5fc3e4 0%, #ff5d5d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5fc3e4', endColorstr='#e55d87', GradientType=1 );
+}

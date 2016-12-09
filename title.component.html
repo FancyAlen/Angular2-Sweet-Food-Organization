@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+    <p *ngIf="user">
+        <!--<my-fader [isVisible]="showFader">-->
+      <i>Welcome, {{user}} And Hello !</i>
+    <p>
+    <!--<button (click)="showFader = !showFader">点我！</button>
+    <div [@isVisibleChanged]="isVisible" >
+      <ng-content></ng-content>    
+      <p>Can you see me? I should fade in or out...</p>
+    </div>-->
+    <nav>
+    <a routerLink="/dashboard" routerLinkActive="active">面板</a>
+    <a routerLink="/foods" routerLinkActive="active">列表</a>
+    <a routerLink="/food-form" routerLinkActive="active">表单</a>
+    </nav>
+    <router-outlet></router-outlet>
